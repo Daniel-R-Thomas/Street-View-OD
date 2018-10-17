@@ -33,9 +33,9 @@ After the object model is training and the street view images are downloaded in 
 
 ### Project contributions
 
-Daniel R. Thomas - daniel.r.thomas.drt@gmail.com
-Ronald Davindra Bactawar - ronbactawar@gmail.com
-Christina Ling - christina.m.ling@gmail.com
+* Daniel R. Thomas - daniel.r.thomas.drt@gmail.com
+* Ronald Davindra Bactawar - ronbactawar@gmail.com
+* Christina Ling - christina.m.ling@gmail.com
 
 ### Presentation
 
