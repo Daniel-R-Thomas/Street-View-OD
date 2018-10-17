@@ -8,6 +8,8 @@ The intent behind this project is to be able to download all available street vi
 
 Detected security camera on collected Street View image
 
+
+
 Project can be listed into three subcategories below. These issues all had to be solved independently and combined together.
 
 ### Project Structure
