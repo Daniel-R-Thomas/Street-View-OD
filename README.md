@@ -1,50 +1,42 @@
 # Google Street View Machine Learning Intelligence
 
-## Introduction
+## Intent
 
-This a log of my development of the Google Street View Machine Learning Intelligence project during my internship at SOFWERX. [SOFWERX](http://www.sofwerx.org) is an organization devoted to open-sourcing solutions to challenges faced by warfighters every day. The intent behind this project is to be able to quickly and automatically search for trained objects in an entire city via Google Street View. For example, being able to map out a large portion of an areas security cameras or power grid via poles and transformers is very useful.
+The intent behind this project is to be able to download all available street view images of a given city then perform object recognition for pre trained objects. Detected objects will have their GPS coordinates saved to be mapped out.
 
 ![Image of Recognized Camera](https://raw.githubusercontent.com/Daniel-R-Thomas/weekly-activity-report/master/datascience/Daniel/cam2.png)
 <p align="center">Detected security camera on collected Street View image</p>
 
-### Objectives
+Project can be listed into three subcategories below. These issues all had to be solved independently and combined together.
 
-* Automated collection of every Google Street View image in a given city
+### Project Structure
 
-* Performing object recognition on collected images for a specific object(s) and recording location
+* Object recognition
 
-* Analyzing and mapping collected data
+* Street View image collection
 
-### Current Capabilities
+* Mapping given area
 
-* Given a list of coordinates, imageGrabber.py will download the nearest Street View images.
+### Object Recognition
 
-* TensorFlow is currently setup to properly train and recognize given objects/images. Dome cameras are being detected Successfully
+Object recognition software used: Google tensorflow in a docker environment https://github.com/sofwerx/tensorflow-object-detection-docker. Collect the majority of the images via google streetview as this will be the same environment the image recognition will be performing in. Once collected, these images needs to be annotated per object. Afterwards, the CPU/GPU training can begin. It’s recommended to use a slower, more accurate model for this phase as nothing needs to be done in real time. After the training is finished, the model should be collected. The street view images can now be run through the object detection.
 
-### Pending Implementations
 
-* Method of downloading all Street View images in given area. Either via brute forcing coordinates or DFS/BFS traversal of the streets
+### Street View image collection
 
-* Logging objects location once recognized in TensorFlow
+Street View images will be collected from google street views API via url request in the following format: https://www.google.com/maps/@3.1481281,101.713907,3a,28.1y,22.31h,98.63t/data=!3m6!1e1!3m4!1sj0mhuERB8MvasM8R_VUqsg!2e0!7i13312!8i6656
+Mass amounts of relevant coordinates will need to be collected in a give area in order to make this useful. Traversing google maps is very time intensive to program. Another way of getting effective coordinates is by using this opensource tool that makes use of OpenStreetMaps: https://extract.bbbike.org/. This will give a mass export of coordinates and other data of a given area. Parse through this data to extract only the coordinates. The next problem is if the coordinates parsed are within the city or not. Use the attached code to reverse geo locate the coordinates into addresses. If the addresses do not return the city you want, throw them away. This will then give a large list of good coordinates that can be pumped into the API to mass download pictures of the entire city. 
 
-* Loading and displaying data pinpoints onto map
+### Mapping given area
 
-* Objects to be collected: Domecams, longcams, transformers, power polls
+After the object model is training and the street view images are downloaded in mass quantities, the time to run object recognition on the street view images can begin. Every time and object is detected, the image name should be logged in any data format along with the object type. Each image name will have the coordinates and direction of the detected object. Compiling all this data together can then be uploaded to any mapping tool to begin analysing.
 
-* Pending...
+### Project contributions
 
-### Dependencies
+Daniel R. Thomas - daniel.r.thomas.drt@gmail.com
+Ronald Davindra Bactawar - ronbactawar@gmail.com
+Christina Ling - christina.m.ling@gmail.com
 
-* SOFWERX [TensorFlow Object Detection Docker](https://github.com/sofwerx/tensorflow-object-detection-docker) file
+### Presentation
 
-* Python 2 and 3
-
-* Pending...
-
-### How To Run
-
-* Pending...
-
-### Change Log
-
-* Pending...
+https://docs.google.com/presentation/d/12L9wRIfx4t7goYt1r5_rZdbqoIJEMxBmE8FkHz6T9Eg/edit#slide=id.g44e1f9511a_0_169
