@@ -4,8 +4,8 @@
 
 The intent behind this project is to be able to download all available street view images of a given city then perform object recognition for pre trained objects. Detected objects will have their GPS coordinates saved to be mapped out.
 
-<p align="center">![Image of Recognized Camera](https://raw.githubusercontent.com/Daniel-R-Thomas/Street-View-OD/master/exa.png)</p>
-<p align="center">Detected security camera on collected Street View image</p>
+![Image of Recognized Camera](https://raw.githubusercontent.com/Daniel-R-Thomas/Street-View-OD/master/exa.png)
+Detected security camera on collected Street View image
 
 Project can be listed into three subcategories below. These issues all had to be solved independently and combined together.
 
